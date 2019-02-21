@@ -18,6 +18,7 @@ func! s:toggle_pager_mode()
     nmap  b <PageUp>
     nmap  f <PageDown>
     nmap  <space> <PageDown>
+    nmap  <C-space> <PageUp>
     let b:in_pager_mode = 1
     let s:old_status_line = &statusline
     let s:old_laststatus = &laststatus 
@@ -27,10 +28,11 @@ func! s:toggle_pager_mode()
     nunmap  b
     nunmap  f
     nunmap  <space>
+    nunmap  <C-space>
     let b:in_pager_mode = 0
     exec "set statusline=".s:old_status_line." laststatus=".s:old_laststatus
   endif
 endfunc
 
-nmap <c-p> :call <SID>toggle_pager_mode()<CR>
+nmap <localleader>p :call <SID>toggle_pager_mode()<CR>
 
